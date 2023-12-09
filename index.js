@@ -33,12 +33,13 @@ const dataContainer = document.getElementById("data-container");
 const displayDataFromLS = () => {
     const localStorageData = getItemsFromLocalStorage();
     dataContainer.innerText = "";
-    for (let storageData in localStorageData) {
+    for (let productName in localStorageData) {
         // console.log(data);
         const serial = dataContainer.childElementCount;
+        const productQuantiy = localStorageData[productName];
         const dataLi = document.createElement("li");
         dataLi.classList.add("data-list");
-        dataLi.innerText = `${serial + 1}. ${storageData} : ${localStorageData[storageData]}`;
+        dataLi.innerText = `${serial + 1}. ${productName} : ${productQuantiy}`;
         dataContainer.appendChild(dataLi);
     }
 }
